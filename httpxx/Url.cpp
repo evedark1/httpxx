@@ -138,15 +138,14 @@ namespace http {
     {
         std::map<std::string, std::string> values;
         std::string param = query();
-        size_t pos = 0;
-        while(param.size() > pos) {
-            size_t aidx = param.find('&', pos);
+        while(param.size() > 0) {
+            size_t aidx = param.find('&');
             if(aidx == 0) {
-                pos++;
+                param.erase(0, 1);
                 continue;
             }
-            std::string vstr = param.substr(pos, aidx);
-            pos += vstr.size() + 1;
+            std::string vstr = param.substr(0, aidx);
+            param.erase(0, aidx);
 
             size_t eidx = vstr.find('=', 0);
             if(eidx != std::string::npos && eidx != 0) {
