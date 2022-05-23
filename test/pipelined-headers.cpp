@@ -23,7 +23,6 @@ namespace {
 
         "POST /post_identity_body_world?q=search#hey HTTP/1.0\r\n"
         "Accept: */*\r\n"
-        "Transfer-Encoding: identity\r\n"
         "Content-Length: 5\r\n"
         "\r\n"
         "World"
